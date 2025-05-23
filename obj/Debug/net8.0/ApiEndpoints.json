@@ -1,0 +1,97 @@
+[
+  {
+    "ContainingType": "ChallengeMottu.Controllers.MotoController",
+    "Method": "GetAll",
+    "RelativePath": "api/Moto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChallengeMottu.Controllers.MotoController",
+    "Method": "Create",
+    "RelativePath": "api/Moto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moto",
+        "Type": "ChallengeMottu.Entities.Moto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChallengeMottu.Controllers.MotoController",
+    "Method": "GetById",
+    "RelativePath": "api/Moto/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChallengeMottu.Controllers.MotoController",
+    "Method": "Update",
+    "RelativePath": "api/Moto/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "moto",
+        "Type": "ChallengeMottu.Entities.Moto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChallengeMottu.Controllers.MotoController",
+    "Method": "Delete",
+    "RelativePath": "api/Moto/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChallengeMottu.Controllers.MotoController",
+    "Method": "GetByPlaca",
+    "RelativePath": "api/Moto/by-placa",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "placa",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
