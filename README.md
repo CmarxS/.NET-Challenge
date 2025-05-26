@@ -82,6 +82,6 @@ Base URL: `http://localhost:5030/api`
 
 ## Testes
 
-- Acesse o Swagger UI em `http://localhost:5030/swagger` para testar interativamente todos os endpoints.
+- Acesse o Swagger UI rodando a aplicação pelo Visual Studio para testar interativamente todos os endpoints.
 
 ---
