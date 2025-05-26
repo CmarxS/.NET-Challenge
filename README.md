@@ -1,5 +1,11 @@
 # ChallengeMottu API
 
+RM558640 - Caio Amarante
+
+RM556325 - Felipe Camargo
+
+RM555997 - Caio Marques
+
 ## Descrição
 A **ChallengeMottu API** é uma API RESTful construída em .NET para gerir motos, funcionários e filiais da Mottu. Ela oferece operações CRUD completas nas entidades Moto, Funcionário e Filial.
 
@@ -79,5 +85,3 @@ Base URL: `http://localhost:5030/api`
 - Acesse o Swagger UI em `http://localhost:5030/swagger` para testar interativamente todos os endpoints.
 
 ---
-
-*Documentação gerada em 2025-05-25*
