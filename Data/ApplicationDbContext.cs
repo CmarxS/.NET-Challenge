@@ -1,16 +1,15 @@
 ﻿using ChallengeMottu.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace ChallengeMottu.Data
+namespace ChallengeMottu.Data;
+public class ApplicationDbContext : DbContext
 {
-    public class ApplicationDbContext : DbContext
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
-
-        public DbSet<Moto> Motos { get; set; }
-
     }
+
+    public DbSet<Moto> Motos { get; set; }
+    public DbSet<Funcionario> Funcionarios { get; set; }
+    public DbSet<Filial> Filiais { get; set; }
 }

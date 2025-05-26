@@ -1,4 +1,3 @@
-// Program.cs
 using Microsoft.EntityFrameworkCore;
 using ChallengeMottu.Data;
 using ChallengeMottu.Domain.Interfaces;
@@ -8,22 +7,23 @@ using ChallengeMottu.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1) Configurar o DbContext para Oracle
+var connStr = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseOracle(connStr));
 
-// 2) Registrar Repositório e Serviço de Aplicação
 builder.Services.AddScoped<IMotoRepository, MotoRepository>();
 builder.Services.AddScoped<IMotoApplicationService, MotoApplicationService>();
+builder.Services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
+builder.Services.AddScoped<IFuncionarioApplicationService, FuncionarioApplicationService>();
+builder.Services.AddScoped<IFilialRepository, FilialRepository>();
+builder.Services.AddScoped<IFilialApplicationService, FilialApplicationService>();
 
-// 3) Adicionar controllers e Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// 4) Middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

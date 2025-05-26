@@ -1,4 +1,5 @@
 ﻿using ChallengeMottu.Data;
+using ChallengeMottu.DTO;
 using ChallengeMottu.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +20,10 @@ namespace ChallengeMottu.Controllers
         // GET: api/moto
         [HttpGet]
         public async Task<IActionResult> GetAll()
-            => Ok(await _ctx.Motos.ToListAsync());
+        {
+            var motos = await _ctx.Motos.ToListAsync();
+            return Ok(motos);
+        }
 
         // GET: api/moto/{id}
         [HttpGet("{id:int}")]
@@ -32,21 +36,43 @@ namespace ChallengeMottu.Controllers
 
         // POST: api/moto
         [HttpPost]
-        public async Task<IActionResult> Create(Moto moto)
+        public async Task<IActionResult> Create([FromBody] MotoCreateDto dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var moto = new Moto
+            {
+                Modelo = dto.Modelo,
+                AnoFabricacao = dto.AnoFabricacao,
+                Categoria = dto.Categoria,
+                Placa = dto.Placa
+            };
+
             _ctx.Motos.Add(moto);
             await _ctx.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new { id = moto.Id }, moto);
+
+            return CreatedAtAction(
+                nameof(GetById),
+                new { id = moto.Id },
+                moto
+            );
         }
 
         // PUT: api/moto/{id}
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> Update(int id, Moto moto)
+        public async Task<IActionResult> Update(int id, [FromBody] MotoCreateDto dto)
         {
-            if (id != moto.Id) return BadRequest();
-            if (!await _ctx.Motos.AnyAsync(m => m.Id == id)) return NotFound();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            _ctx.Entry(moto).State = EntityState.Modified;
+            var moto = await _ctx.Motos.FindAsync(id);
+            if (moto == null) return NotFound();
+
+            moto.Modelo = dto.Modelo;
+            moto.AnoFabricacao = dto.AnoFabricacao;
+            moto.Categoria = dto.Categoria;
+
             await _ctx.SaveChangesAsync();
             return NoContent();
         }
@@ -61,15 +87,6 @@ namespace ChallengeMottu.Controllers
             _ctx.Motos.Remove(moto);
             await _ctx.SaveChangesAsync();
             return NoContent();
-        }
-
-        [HttpGet("by-placa")]
-        public async Task<IActionResult> GetByPlaca([FromQuery] string placa)
-        {
-            var list = await _ctx.Motos
-                                 .Where(m => m.Placa == placa)
-                                 .ToListAsync();
-            return Ok(list);
         }
     }
 }

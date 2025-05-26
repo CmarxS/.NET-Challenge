@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChallengeMottu")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9396b7a9d8c86d12ae2f4649ffd2aa1552b2cd1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a6ed324357d65aaaac56544f2bbf05f27e552d5")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChallengeMottu")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChallengeMottu")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -18,12 +18,10 @@ namespace ChallengeMottu.Entities
         public int AnoFabricacao { get; set; }
 
         [Required]
+        [StringLength(20)]
         public string Placa { get; set; }
 
         [StringLength(50)]
         public string Categoria { get; set; }
-        // public int FilialId { get; set; }
-        //[ForeignKey(nameof(FilialId))]
-        //public Filial Filial { get; set; }
     }
 }

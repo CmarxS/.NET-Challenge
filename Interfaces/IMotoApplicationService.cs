@@ -1,4 +1,4 @@
-﻿using ChallengeMottu.DTOs;
+﻿using ChallengeMottu.DTO;
 using ChallengeMottu.Entities;
 
 namespace ChallengeMottu.Application.Interfaces
