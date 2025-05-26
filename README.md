@@ -9,12 +9,6 @@ RM555997 - Caio Marques
 ## Descrição
 A **ChallengeMottu API** é uma API RESTful construída em .NET para gerir motos, funcionários e filiais da Mottu. Ela oferece operações CRUD completas nas entidades Moto, Funcionário e Filial.
 
-## Tecnologias
-- .NET 7
-- Entity Framework Core 7
-- Oracle Managed Data Access
-- Swagger (OpenAPI)
-
 ## Configuração
 
 1. **String de Conexão**  
